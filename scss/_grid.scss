@@ -1,0 +1,29 @@
+.container{
+    width:100%;
+    max-width: 1200px;
+    margin:0 auto;
+}
+.row::before, 
+.row::after{
+    content:'';
+    display: block;
+    clear: both;
+}
+[class*='col-']{
+   float:left;
+   min-height: 1px;
+   width:100%;
+   @media(min-width:620px){
+       width: (100% / 12);
+       float:left;
+   }
+}
+
+@media (min-width:620px){
+    @for $i from 1 through 12{ 
+        .col-#{$i}{
+            width:(100%/12)*$i;
+        }
+    }
+}
+   
